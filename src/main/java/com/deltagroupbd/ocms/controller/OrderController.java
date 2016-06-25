@@ -37,18 +37,18 @@ public class OrderController {
         return "merchandising/orderbasic";
     }
     @RequestMapping(value="/neworder", method=RequestMethod.POST)
-    public String processOrder(@Valid @ModelAttribute OrderBasic orderBasic,  BindingResult bindingResult) {
-    	
+    public String processOrder(@Valid @ModelAttribute OrderBasic orderBasic,  BindingResult bindingResult , final RedirectAttributes redirectAttributes) {
+        Long orderId = orderBasic.getId();
         if (bindingResult.hasErrors()) {
             System.out.print("errror..........");
             return "merchandising/orderbasic";
         }
         repository.save(orderBasic);
-        return "merchandising/orderbasic";
+        return "redirect:/orderbasic/edit/" + orderId;
     }
 
     @RequestMapping(value = "/orderbasic/{operation}/{orderId}", method = RequestMethod.GET)
-    public String editRemoveOrder(@PathVariable("operation") String operation,
+    public String editRemoveOrderBasic(@PathVariable("operation") String operation,
             @PathVariable("orderId") Long orderId, final RedirectAttributes redirectAttributes,
             Model model) {
         OrderBasic orderbasic = repository.findOne(orderId);
@@ -70,6 +70,6 @@ public class OrderController {
         }
 
         return "redirect:/neworder";
-    }    
+    } 
 
 }
