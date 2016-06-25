@@ -9,5 +9,34 @@
 2. Install maven [see guide](http://www.mkyong.com/maven/how-to-install-maven-in-windows/)
 3. download tomcat,extract it & run by clicking startup.bat of bin directory 
 [dowanload link](https://tomcat.apache.org/download-80.cgi)
+2. Dowaload Oracle 11g express & Install [dowanload link](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
 
 ### App Setting ###
+1.create a oracle user
+`create user ocms identified by 12345`
+Add tomcat user $TOMCAT_HOME/conf/tomcat-users.xml<br>
+```xml
+<role rolename="manager-gui"/>
+  <role rolename="manager"/>
+  <role rolename="manager-script"/>
+  <user username="maven" password="maven" roles="manager,manager-script"/> 
+  <user username="admin" password="delta321" roles="manager-gui,manager,manager-script"/>
+```
+Change http server port 8080 to 8282 since oracle express use 8080 $TOMCAT_HOME/conf/servers.xml<br>
+```xml
+<Connector port="8282" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+```
+
+Add server servers section at $MAVEN_HOME/conf/settings.xml<br>
+```xml
+ 	<server>
+      <id>tomcat</id>
+      <username>maven</username>
+      <password>maven</password>
+    </server>
+```javascript   
+### Run App ###
+mvn clean tomcat7-deploy
+### Browser App ###
