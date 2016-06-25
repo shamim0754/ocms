@@ -1,7 +1,0 @@
-com\deltagroupbd\ocms\config\AppConfig.class
-com\deltagroupbd\ocms\config\ThymeLeafConfig.class
-com\deltagroupbd\ocms\model\OrderBasic.class
-com\deltagroupbd\ocms\controller\HomeController.class
-com\deltagroupbd\AppInitializer.class
-com\deltagroupbd\ocms\controller\OrderController.class
-com\deltagroupbd\ocms\repository\OrderBasicRepository.class
