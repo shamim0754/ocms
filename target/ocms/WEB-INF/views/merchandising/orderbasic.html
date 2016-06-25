@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+<head>
+  <title>order basic info</title>
+</head>
+<body>
+  <div layout:fragment="content">
+    <div class="row">
+       <div class="col-md-offset-3 col-md-6">
+           <!-- Deletion Alert Messages -->
+              <div th:if="${deletion eq 'unsuccess'}">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+            <strong>Error!</strong> order Data Not Deleted.
+          </div>
+             </div>
+             <div th:if="${deletion eq 'success'}">
+                <div class="alert alert-success alert-dismissible" role="alert">
+            <strong>Success!</strong> order Data Deleted Successfully.
+          </div>
+             </div>
+         
+         <!-- Edit Alert Message -->
+          <div th:if="${status eq 'notfound'}">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+            <strong>Error!</strong> Invalid order.
+          </div>
+             </div>
+        </div>     
+    </div>         
+    
+    <form action="#" th:action="@{/neworder}" th:object="${orderBasic}" method="post">
+      <input type="hidden" th:field="*{id}"/>
+      <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="buyerName">Buyer</label>
+                <div class="col-md-5">
+                    <input type="text" th:field="*{buyerName}" class="form-control input-sm"/>
+                     <div th:if="${#fields.hasErrors('buyerName')}" th:errors="*{buyerName}" class="has-error"></div>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="mktHeadName">Mkt.Head</label>
+                <div class="col-md-7">
+                     <input type="text" th:field="*{mktHeadName}" class="form-control input-sm"/>
+                    <!--<div class="has-error">
+                        <form:errors path="lastName" class="help-inline"/>
+                    </div>-->
+                     <div th:if="${#fields.hasErrors('mktHeadName')}" th:errors="*{mktHeadName}" class="has-error"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-actions floatRight">
+                <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+            </div>
+        </div>
+    </form>
+    <div class="row"  style="margin-bottom:50px;">
+          <div class="col-md-offset-2 col-md-8">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">All Order</h3>
+                  </div>
+                 <div class="panel-body">
+                      <table class="table table-bordered">
+                        <thead>
+                           <tr class="btn-success">
+                             <th>Order No</th>
+                             <th>Buyer</th>
+                             <th>Mkt</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                             <tr th:if="${#lists.isEmpty(orders)}" class="btn-warning">
+                                <td colspan="4" align="center">No Employee Registered Yet!!!</td> 
+                             </tr>
+                               <tr th:each="order : ${orders}">
+                                 <td th:text="${order.id}"></td>
+                                 <td th:text="${order.buyerName}"></td>
+                                 <td th:text="${order.mktHeadName}"></td>
+                                 <td align="center">
+                                    <a th:href="@{/orderbasic/edit/{id}(id=${order.id})}"><span class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp;
+                                    <a th:href="@{/orderbasic/delete/{id}(id=${order.id})}"><span class="glyphicon glyphicon-trash"></span></a>
+                                 </td>
+                               </tr>
+                            
+                        </tbody>
+                    </table>
+                  </div>
+                          
+                </div>
+           </div>
+       </div>
+    </div>
+</body>
+</html>
+       
