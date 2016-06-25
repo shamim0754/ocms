@@ -31,7 +31,7 @@ Change http server port 8080 to 8282 since oracle express use 8080 $TOMCAT_HOME/
                redirectPort="8443" />
 ```
 
-Add server servers section at $MAVEN_HOME/conf/settings.xml<br>
+Add server at servers section in $MAVEN_HOME/conf/settings.xml
 ```xml
  	<server>
       <id>tomcat</id>
