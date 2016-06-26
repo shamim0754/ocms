@@ -1,4 +1,4 @@
-package com.deltagroupbd.ocms.controller;
+package com.deltagroupbd.ocms.merchandising.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

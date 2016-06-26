@@ -1,9 +1,9 @@
-package com.deltagroupbd.ocms.controller;
+package com.deltagroupbd.ocms.merchandising.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import com.deltagroupbd.ocms.model.OrderBasic;
-import com.deltagroupbd.ocms.repository.OrderBasicRepository;
+import com.deltagroupbd.ocms.merchandising.model.OrderBasic;
+import com.deltagroupbd.ocms.merchandising.repository.OrderBasicRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
-package com.deltagroupbd.ocms.repository;
+package com.deltagroupbd.ocms.merchandising.repository;
 
-import com.deltagroupbd.ocms.model.OrderBasic;
+import com.deltagroupbd.ocms.merchandising.model.OrderBasic;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
