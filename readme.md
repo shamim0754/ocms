@@ -14,7 +14,7 @@
 ### App Setting ###
 1.create a oracle user
 
-`create user ocms identified by 12345`
+`create user ocms identified by delta321`
 
 Add tomcat user $TOMCAT_HOME/conf/tomcat-users.xml
 ```xml
