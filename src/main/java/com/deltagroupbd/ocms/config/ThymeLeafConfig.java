@@ -11,6 +11,7 @@ public class ThymeLeafConfig {
 	@Bean
 	public ServletContextTemplateResolver templateResolver() {
 		ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
+		//resolver.setPrefix("classpath:/templates/"); //default
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".html");
 		resolver.setTemplateMode("HTML5");

@@ -40,6 +40,6 @@ Add server at servers section in $MAVEN_HOME/conf/settings.xml
     </server>
 ``` 
 ### Run App ###
-mvn clean tomcat7-deploy
+mvn clean tomcat7:deploy
 ### Browser App ###
 http://localhost:8282/ocms/

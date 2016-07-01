@@ -30,7 +30,9 @@
                   <li><a href="#">Work order yarn</a></li>
                 </ul>
               </li>
-            <li><a href="#contact">Contact</a></li>
+            <li><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form></li>
           </ul>
         </div><!--/.nav-collapse -->
 

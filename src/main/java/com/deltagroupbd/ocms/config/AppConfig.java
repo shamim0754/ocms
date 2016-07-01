@@ -14,7 +14,10 @@ import org.springframework.context.MessageSource;
 
 @Configuration
 @EnableWebMvc
-@Import({ThymeLeafConfig.class})
+@Import({
+	ThymeLeafConfig.class ,
+	WebSecurityConfig.class 
+})
 public class AppConfig extends WebMvcConfigurerAdapter {
     
     /**
