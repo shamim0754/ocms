@@ -41,7 +41,7 @@ Add server at servers section in $MAVEN_HOME/conf/settings.xml
     </server>
 ``` 
 ###Oracle JDBC ###
-We want to install oracle jdbc into maven local repository since there is no maven central repository for oracle like mysql
+We want to install oracle jdbc into maven local repository so that we can use it as a dependency since there is no maven central repository for oracle like mysql
 
 `mvn install:install-file -Dfile=C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar -DgroupId=com.oracle 
 -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar`
