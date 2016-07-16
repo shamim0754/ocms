@@ -15,6 +15,7 @@
 1.create a oracle user
 
 `create user ocms identified by delta321`
+`grant create session to ocms`
 
 Add tomcat user $TOMCAT_HOME/conf/tomcat-users.xml
 ```xml
