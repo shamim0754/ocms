@@ -18,12 +18,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PathVariable;
 
+/**
+ * OrderController --- program to handle Order Crud operation.
+ * @author    Md.Shamim Miah
+ */
 @Controller
 public class OrderController {
 
-	@Autowired
+	  @Autowired
     OrderBasicRepository repository;
-
+    /**
+      * populate order list
+      * @param model containing request attribute
+      * @exception Any exception
+      * @return No return value
+      */
     @ModelAttribute
     public void populateOrders(Model model) {
         Iterable<OrderBasic> itr = repository.findAll();
@@ -31,11 +40,25 @@ public class OrderController {
         model.addAttribute("orders" , orders);
     }
 
-
+    /**
+      * generate order form
+      * @param orderBasic containing orderbasic model
+      * @exception Any exception
+      * @return "merchandising/orderbasic"
+      */
     @RequestMapping(value = "/neworder", method = RequestMethod.GET)
     public String orderForm(OrderBasic orderBasic) {
         return "merchandising/orderbasic";
     }
+
+    /**
+      * saving order info,validate form
+      * @param orderBasic containing orderbasic model
+      * @param bindingResult containing orderbasic model binding related errors
+      * @param redirectAttributes containing redirect attribute
+      * @exception Any exception
+      * @return "merchandising/orderbasic"
+      */
     @RequestMapping(value="/neworder", method=RequestMethod.POST)
     public String processOrder(@Valid @ModelAttribute OrderBasic orderBasic,  BindingResult bindingResult , final RedirectAttributes redirectAttributes) {
         Long orderId = orderBasic.getId();
@@ -46,7 +69,15 @@ public class OrderController {
         repository.save(orderBasic);
         return "redirect:/orderbasic/edit/" + orderId;
     }
-
+    /**
+      * delele , update order info,validate form
+      * @param operation A string contains operation name like edit,delete
+      * @param orderId A int contains orderId
+      * @param redirectAttributes containing redirect attribute
+      * @param model containing request attribute
+      * @exception Any exception
+      * @return "merchandising/orderbasic"
+      */
     @RequestMapping(value = "/orderbasic/{operation}/{orderId}", method = RequestMethod.GET)
     public String editRemoveOrderBasic(@PathVariable("operation") String operation,
             @PathVariable("orderId") Long orderId, final RedirectAttributes redirectAttributes,
