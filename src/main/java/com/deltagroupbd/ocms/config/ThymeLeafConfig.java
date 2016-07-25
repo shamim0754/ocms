@@ -25,6 +25,7 @@ public class ThymeLeafConfig {
 		SpringTemplateEngine engine = new SpringTemplateEngine();
 		engine.setTemplateResolver(templateResolver());
 		engine.addDialect(new LayoutDialect());
+		engine.addDialect(springSecurityDialect());
 		return engine;
 	}
 	

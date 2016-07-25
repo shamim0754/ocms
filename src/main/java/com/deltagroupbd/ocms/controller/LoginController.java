@@ -13,9 +13,5 @@ public class LoginController {
     String login(Model model) {
         return "login";
     }
-    @RequestMapping("/access_denied")
-    public String accessDeniedPage(Model model) {
-        return "accessdenied";
-    }
-
+    
 }
