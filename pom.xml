@@ -173,7 +173,9 @@
 	                <url>http://localhost:8282/manager/text</url>
 	                <server>tomcat</server>
 	                <path>/${project.artifactId}</path>
+	                <update>true</update><!-- automatically undeploy when deploying -->
 	            </configuration>
+
 	        </plugin>
 			<!-- pretty print of test results -->
 			<plugin>

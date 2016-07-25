@@ -5,6 +5,7 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 public class ThymeLeafConfig {
 	
@@ -33,4 +34,9 @@ public class ThymeLeafConfig {
 		resolver.setTemplateEngine(templateEngine());
 		return resolver;
 	}
+	//register SpringSecurityDialect dialect to handle info
+	@Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
+    }
 }

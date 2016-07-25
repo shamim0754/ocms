@@ -20,22 +20,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                // .antMatchers("/", "/home").permitAll()
-                //.anyRequest().authenticated()
+                //.antMatchers("/", "/home").permitAll()  
+                .anyRequest().fullyAuthenticated() // or .anyRequest().authenticated()
+                .antMatchers("/admin**").access("hasRole('ADMIN')") 
                 //.antMatchers("/home").access("hasRole('USER')") 
-                .anyRequest().fullyAuthenticated()
+                
                 .and()
             .formLogin()
                 .loginPage("/login") //.usernameParameter("username").passwordParameter("password") if param name different
                 //.and().csrf() bydefault enable spring 4
                 .failureUrl("/login?error")
                 .defaultSuccessUrl("/")
-                //.exceptionHandling().accessDeniedPage("/access_denied")
                 .permitAll()
                 .and()
 
             .logout()
-                .permitAll();
+                .permitAll()
+                .logoutSuccessUrl("/login?logout") //default you can chagne it
+                .and()
+                .exceptionHandling().accessDeniedPage("/access_denied");
     }
 
     @Autowired

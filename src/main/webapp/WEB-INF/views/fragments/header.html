@@ -30,9 +30,12 @@
                   <li><a href="#">Work order yarn</a></li>
                 </ul>
               </li>
-            <li><form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form></li>
+              <li class="active"><a th:href="@{/admin}">Admin</a></li>
+            <li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
 
