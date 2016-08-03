@@ -50,6 +50,8 @@ We need to install oracle jdbc into maven local repository so that we can use it
 
 -Dfile = specify your jdbc location
 
+### Download App ###
+`git clone https://delta_admin@bitbucket.org/delta_admin/ocms.git`
 ### Run App ###
 mvn clean tomcat7:deploy
 ### Browser App ###

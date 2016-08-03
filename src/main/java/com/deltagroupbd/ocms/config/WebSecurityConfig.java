@@ -26,7 +26,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/home").access("hasRole('USER')") 
             .and()
                 .formLogin()
-                .loginPage("/login") //.usernameParameter("username").passwordParameter("password") if param name different
+                .loginPage("/login") 
+                .loginProcessingUrl("/login")  //login form action url default /login
+                //.usernameParameter("username").passwordParameter("password") if param name different
                 //.and().csrf() bydefault enable spring 4
                 .failureUrl("/login?error")
                 .defaultSuccessUrl("/")
