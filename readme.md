@@ -2,9 +2,9 @@
 
 ### Technology ###
 
-1.Spring 4 Boot
-2.Themyleaf template engine
-3.Spring 4 security
+1. Spring 4 Boot
+2. Themyleaf template engine
+3. Spring 4 security
 
 ### Installation Step ###
 1. Install jdk 7 or 8 [see guide](https://java.com/en/download/help/windows_manual_download.xml)
