@@ -110,7 +110,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+		-->
 		<!-- ORACLE database driver -->
 		<!--
 		<dependency>
