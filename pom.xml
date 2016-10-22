@@ -104,7 +104,7 @@
 	        <artifactId>spring-boot-starter-tomcat</artifactId>
 	        <scope>provided</scope>
 	    </dependency>
-	    
+	    <!--
 	    <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -119,6 +119,11 @@
 			<version>11.2.0</version>
 		</dependency>
 		-->
+		<dependency>
+		    <groupId>postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.1-901.jdbc4</version>
+		</dependency>
 		
 	</dependencies>
 	
